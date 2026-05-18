@@ -143,7 +143,7 @@
 
 <body>
 
-  <!-- 🛠️ واجهة التحكم والمنشئ (تظهر فقط إذا كان الرابط فارغاً) -->
+  <!-- 🛠️ واجهة التحكم والمنشئ -->
   <div id="setup__container">
     <div class="setup__box">
       <h2><i class="fa-solid fa-wand-magic-sparkles"></i> صانع هدايا أعياد الميلاد</h2>
@@ -172,8 +172,8 @@
       </div>
 
       <div class="input__group">
-        <label>رسالة المعايدة:</label>
-        <textarea id="custom__msg" placeholder="اكتب رسالتك الخاصة هنا للطرف الآخر..."></textarea>
+        <label>رسالة المعايدة الأساسية:</label>
+        <textarea id="custom__msg" placeholder="اكتب رسالتك باللغة التي تفضلها (عربي أو إنجليزي)..."></textarea>
         <button id="btn__default--msg" type="button"><i class="fa-solid fa-quote-left"></i> استخدام الرسالة الافتراضية</button>
       </div>
 
@@ -190,7 +190,7 @@
   </div>
 
 
-  <!-- 🎁 واجهة عرض الهدية (تختفي في البداية وتعمل بالرابط الذكي) -->
+  <!-- 🎁 واجهة عرض الهدية -->
   <div id="wrapper" style="display: none;">
     <div class="flag__birthday">
       <img src="1.png" alt="" width="350" class="flag__left">
@@ -227,8 +227,9 @@
         </div>
 
         <div class="btn">
+          <!-- 🌟 تم استبدال الكلمة هنا بـ اضغط هنا -->
           <button id="btn__letter">
-            Click here 
+            اضغط هنا 
             <i class="fa-regular fa-envelope"></i>
           </button>
         </div>
@@ -275,28 +276,17 @@
       </div>
     </div>
 
+    <!-- تزيينات النجوم والورود -->
     <div class="decorate_star star1" style="--t: 15s;"></div>
     <div class="decorate_star star2" style="--t: 15.2s;"></div>
     <div class="decorate_star star3" style="--t: 15.4s;"></div>
     <div class="decorate_star star4" style="--t: 15.6s;"></div>
     <div class="decorate_star star5" style="--t: 15.8s;"></div>
-
-    <div class="decorate_flower--one" style="--t: 15s;">
-      <img width="20" src="decorate_flower.png" alt="">
-    </div>
-    <div class="decorate_flower--two" style="--t: 15.3s;">
-      <img width="20" src="decorate_flower.png" alt="">
-    </div>
-    <div class="decorate_flower--three" style="--t: 15.6s;">
-      <img width="20" src="decorate_flower.png" alt="">
-    </div>
-
-    <div class="decorate_bottom">
-      <img src="decorate.png" alt="" width="100">
-    </div>
-    <div class="smiley__icon">
-      <img src="smiley_icon.png" alt="" width="100">
-    </div>
+    <div class="decorate_flower--one" style="--t: 15s;"><img width="20" src="decorate_flower.png" alt=""></div>
+    <div class="decorate_flower--two" style="--t: 15.3s;"><img width="20" src="decorate_flower.png" alt=""></div>
+    <div class="decorate_flower--three" style="--t: 15.6s;"><img width="20" src="decorate_flower.png" alt=""></div>
+    <div class="decorate_bottom"><img src="decorate.png" alt="" width="100"></div>
+    <div class="smiley__icon"><img src="smiley_icon.png" alt="" width="100"></div>
 
     <!-- Letter Box -->
     <div class="box__letter">
@@ -318,6 +308,10 @@
               <div class="text__letter">
                 <p></p>
               </div>
+              
+              <!-- 🌐 زر الترجمة المضاف ذكياً وبحجم متناسق -->
+              <button id="btn__translate" style="display:none;"><i class="fa-solid fa-language"></i> ترجمة الرسالة / Translate</button>
+              
               <img id="mewmew" width="80" src="mewmew.gif" alt="">
             </div>
           </div>
@@ -330,43 +324,28 @@
   </div>
 
   <script>
-    // الرسالة الافتراضية الأصلية بالكود
+    // الرسالة الافتراضية
     const defaultMsg = "You are a very special girl. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
     
-    // توليد خيارات الأيام والسنوات داخل القوائم تلقائياً
-    for(let d=1; d<=31; d++) {
-      $('#select__day').append(`<option value="${d < 10 ? '0'+d : d}">${d < 10 ? '0'+d : d}</option>`);
-    }
-    for(let y=new Date().getFullYear(); y>=1950; y--) {
-      $('#select__year').append(`<option value="${y}">${y}</option>`);
-    }
+    // قوائم التواريخ
+    for(let d=1; d<=31; d++) { $('#select__day').append(`<option value="${d < 10 ? '0'+d : d}">${d < 10 ? '0'+d : d}</option>`); }
+    for(let y=new Date().getFullYear(); y>=1950; y--) { $('#select__year').append(`<option value="${y}">${y}</option>`); }
 
-    // زر إدراج الرسالة الافتراضية
-    $('#btn__default--msg').on('click', function() {
-      $('#custom__msg').val(defaultMsg);
-    });
+    $('#btn__default--msg').on('click', function() { $('#custom__msg').val(defaultMsg); });
 
-    // دالة لتشفير النصوص العربية بشكل صحيح لتعمل في الروابط بدون مشاكل
-    function utf8_to_b64(str) {
-      return window.btoa(unescape(encodeURIComponent(str)));
-    }
-    function b64_to_utf8(str) {
-      return decodeURIComponent(escape(window.atob(str)));
-    }
+    function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
+    function b64_to_utf8(str) { return decodeURIComponent(escape(window.atob(str))); }
 
-    // زر توليد الرابط المخصص
+    // توليد الرابط المخصص
     $('#btn__generate').on('click', function() {
       let day = $('#select__day').val();
       let month = $('#select__month').val();
       let year = $('#select__year').val();
       let msg = $('#custom__msg').val().trim();
-      
-      if(!msg) msg = defaultMsg; // إذا لم يكتب، خذ الافتراضية
+      if(!msg) msg = defaultMsg;
 
       let finalDate = `${day} ${month} ${year}`;
       let encodedMsg = utf8_to_b64(msg);
-
-      // دمج المعاملات بالرابط الأساسي
       let currentUrl = window.location.href.split('?')[0];
       let generatedUrl = `${currentUrl}?date=${encodeURIComponent(finalDate)}&msg=${encodedMsg}`;
 
@@ -374,36 +353,24 @@
       $('#result__link--box').slideDown();
     });
 
-    // زر نسخ الرابط
     $('#btn__copy').on('click', function() {
       let copyText = document.getElementById("generated__url");
       copyText.select();
-      copyText.setSelectionRange(0, 99999);
       navigator.clipboard.writeText(copyText.value);
       alert("تم نسخ الرابط بنجاح! أرسله لمن تحب الآن 🎁");
     });
 
-
-    // ===========================================
-    // 🔍 فحص الرابط البرمجي (الرابط الذكي عند الفتح)
-    // ===========================================
+    // 🔍 معالجة الرابط والرسائل والترجمة
     const urlParams = new URLSearchParams(window.location.search);
     let datetxt = urlParams.get('date');
     let datatxtletter = urlParams.get('msg');
 
     if (datetxt && datatxtletter) {
-      // إذا كان الرابط يحتوي على البيانات: اخفِ لوحة التحكم واعرض الهدية مباشرة
       $('#setup__container').remove();
       $('#wrapper').show();
 
-      // فك تشفير الرسالة المخصصة
-      try {
-        datatxtletter = b64_to_utf8(datatxtletter);
-      } catch(e) {
-        datatxtletter = defaultMsg;
-      }
+      try { datatxtletter = b64_to_utf8(datatxtletter); } catch(e) { datatxtletter = defaultMsg; }
 
-      // تشغيل سكربت التهنئة والأنميشن الأصلي بناءً على البيانات المستخرجة
       let titleLetter = "To you";
       let charArrDate = datetxt.split('');
       let charArrDateLetter = datatxtletter.split('');
@@ -414,6 +381,7 @@
       let date__of__birth = document.querySelector(".date__of__birth span");
       let text__letter = document.querySelector(".text__letter p");
 
+      // الأنميشن الخاص بالتاريخ
       setTimeout(function(){
         timeDatetxt = setInterval(function(){
           if(currentIndex < charArrDate.length){
@@ -431,11 +399,11 @@
 
       var intervalContent;
       var intervalTitle;
+
       $("#btn__letter").on("click", function(){
         $(".box__letter").slideDown();
-        setTimeout(function(){
-          $(".letter__border").slideDown();
-        },1000);
+        setTimeout(function(){ $(".letter__border").slideDown(); },1000);
+        
         setTimeout(function(){
           intervalTitle = setInterval(function(){
             if(currentIndexTitle < charArrTitle.length){
@@ -444,21 +412,21 @@
               i.className = "fa-solid fa-heart";
               document.querySelector(".title__letter").appendChild(i);
               currentIndexTitle++;
-            } else {
-              clearInterval(intervalTitle);
-            }
+            } else { clearInterval(intervalTitle); }
           },100);
         },2000);
+
         setTimeout(function(){
           document.querySelector("#heart__letter").classList.add("animationOp");
           document.querySelector(".love__img").classList.add("animationOp");
           document.querySelector("#mewmew").classList.add("animationOp");
         },2800);
+
         setTimeout(function(){
-          document.querySelectorAll(".heart").forEach((item)=>{
-            item.classList.add("animation");
-          })
+          document.querySelectorAll(".heart").forEach((item)=>{ item.classList.add("animation"); });
         },3500);
+
+        // كتابة نص الرسالة حرفاً بحرف
         setTimeout(function(){
           intervalContent = setInterval(function(){
             if(currentIndexLetter < charArrDateLetter.length){
@@ -466,9 +434,54 @@
               currentIndexLetter++;
             } else {
               clearInterval(intervalContent);
+              // إظهار زر الترجمة فور انتهاء الكتابة التلقائية تماماً
+              $('#btn__translate').fadeIn();
             }
           },50);
         },6000);
+      });
+
+      // 🌐 آلية عمل زر الترجمة الذكي والمجاني بدون سيرفرات
+      let originalText = datatxtletter;
+      let translatedText = ""; 
+      let isTranslated = false;
+
+      $('#btn__translate').on('click', function() {
+        if (isTranslated) {
+          // العودة للنص الأصلي المكتوب
+          $('.text__letter p').text(originalText);
+          isTranslated = false;
+        } else {
+          if (translatedText !== "") {
+            // إذا تمت ترجمتها مسبقاً، اعرض النص المخزن فوراً
+            $('.text__letter p').text(translatedText);
+            isTranslated = true;
+          } else {
+            // تحديد مسار الترجمة تلقائياً (من ع/إ أو إ/ع)
+            let isArabic = /[\u0600-\u06FF]/.test(originalText);
+            let sourceLang = isArabic ? 'ar' : 'en';
+            let targetLang = isArabic ? 'en' : 'ar';
+            
+            $('#btn__translate').html('<i class="fa-solid fa-spinner fa-spin"></i> جاري الترجمة...');
+
+            // استخدام الـ API السريع والمفتوح للترجمة الفورية
+            let apiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang}&dt=t&q=${encodeURIComponent(originalText)}`;
+            
+            $.getJSON(apiUrl, function(data) {
+              let result = "";
+              data[0].forEach(function(line) {
+                if (line[0]) result += line[0];
+              });
+              translatedText = result;
+              $('.text__letter p').text(translatedText);
+              $('#btn__translate').html('<i class="fa-solid fa-language"></i> استعادة النص الأصلي');
+              isTranslated = true;
+            }).fail(function() {
+              alert("عذراً، حدث خطأ أثناء الاتصال بخدمة الترجمة.");
+              $('#btn__translate').html('<i class="fa-solid fa-language"></i> ترجمة الرسالة / Translate');
+            });
+          }
+        }
       });
 
       $(".close").on("click", function(){
@@ -477,18 +490,17 @@
         text__letter.textContent = "";
         currentIndexLetter = 0;
         currentIndexTitle = 0;
+        isTranslated = false;
+        $('#btn__translate').hide().html('<i class="fa-solid fa-language"></i> ترجمة الرسالة / Translate');
         document.querySelector("#heart__letter").classList.remove("animationOp");
         document.querySelector(".love__img").classList.remove("animationOp");
         document.querySelector("#mewmew").classList.remove("animationOp");
-        document.querySelectorAll(".heart").forEach((item)=>{
-          item.classList.remove("animation");
-        });
+        document.querySelectorAll(".heart").forEach((item)=>{ item.classList.remove("animation"); });
         $(".box__letter").slideUp();
         $(".letter__border").slideUp();
       });
 
     } else {
-      // إذا كان الرابط فارغاً: اعرض لوحة تحكم التخصيص والمنشئ
       $('#setup__container').show();
       $('#wrapper').remove();
     }
