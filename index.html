@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- 🌟 تم إضافة translate="no" هنا لمنع المتصفح من إجبار الصفحة على الترجمة التلقائية -->
+<html lang="en" translate="no">
 <head>
   <meta charset="UTF-8">
+  <meta name="google" content="notranslate"> <!-- 🌟 وسم إضافي مخصص لجوجل كروم لمنع الترجمة التلقائية -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="title" content="Happy Birthday Website 2.0 | Customized">
   <title>Birthday Gift Animation</title>
@@ -199,7 +201,8 @@
 
     <div class="content">
       <div class="left">
-        <div class="title">
+        <!-- 🌟 تم تجميد نصوص الهيدر عبر خاصية translate="no" لمنع المتصفح من تغييرها -->
+        <div class="title" translate="no">
           <h1 class="happy">
             <span style="--t: 4s;">H</span>
             <span style="--t: 4.2s;">a</span>
@@ -222,12 +225,11 @@
           </div>
         </div>
 
-        <div class="date__of__birth">
+        <div class="date__of__birth" translate="no">
           <span></span>
         </div>
 
         <div class="btn">
-          <!-- 🌟 تم استبدال الكلمة هنا بـ اضغط هنا -->
           <button id="btn__letter">
             اضغط هنا 
             <i class="fa-regular fa-envelope"></i>
@@ -240,7 +242,7 @@
           <div class="image">
             <img src="img.png" alt="">
           </div>
-          <div class="name">
+          <div class="name" translate="no">
             <i class="fa-solid fa-heart"></i>
             <span>Cutie</span>
             <i class="fa-solid fa-heart"></i>
@@ -253,7 +255,8 @@
           </div>
         </div>
 
-        <div class="cricle">
+        <!-- 🌟 تم حماية النص الدائري الملتف أيضاً من الترجمة العشوائية للمتصفح -->
+        <div class="cricle" translate="no">
           <div class="text__cricle">
             <span style="--i: 1;">h</span>
             <span style="--i: 2;">a</span>
@@ -292,7 +295,7 @@
     <div class="box__letter">
       <div class="letter__border">
         <div class="letter">
-          <div class="title__letter"></div>
+          <div class="title__letter" translate="no"></div>
           <div class="content__letter">
             <div class="left">
               <img id="heart__letter" src="https://media0.giphy.com/media/c76IJLufpNwSULPk77/giphy.gif" alt="">
@@ -309,7 +312,6 @@
                 <p></p>
               </div>
               
-              <!-- 🌐 زر الترجمة المضاف ذكياً وبحجم متناسق -->
               <button id="btn__translate" style="display:none;"><i class="fa-solid fa-language"></i> ترجمة الرسالة / Translate</button>
               
               <img id="mewmew" width="80" src="mewmew.gif" alt="">
@@ -324,10 +326,8 @@
   </div>
 
   <script>
-    // الرسالة الافتراضية
     const defaultMsg = "You are a very special girl. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
     
-    // قوائم التواريخ
     for(let d=1; d<=31; d++) { $('#select__day').append(`<option value="${d < 10 ? '0'+d : d}">${d < 10 ? '0'+d : d}</option>`); }
     for(let y=new Date().getFullYear(); y>=1950; y--) { $('#select__year').append(`<option value="${y}">${y}</option>`); }
 
@@ -336,7 +336,6 @@
     function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
     function b64_to_utf8(str) { return decodeURIComponent(escape(window.atob(str))); }
 
-    // توليد الرابط المخصص
     $('#btn__generate').on('click', function() {
       let day = $('#select__day').val();
       let month = $('#select__month').val();
@@ -360,7 +359,6 @@
       alert("تم نسخ الرابط بنجاح! أرسله لمن تحب الآن 🎁");
     });
 
-    // 🔍 معالجة الرابط والرسائل والترجمة
     const urlParams = new URLSearchParams(window.location.search);
     let datetxt = urlParams.get('date');
     let datatxtletter = urlParams.get('msg');
@@ -381,7 +379,6 @@
       let date__of__birth = document.querySelector(".date__of__birth span");
       let text__letter = document.querySelector(".text__letter p");
 
-      // الأنميشن الخاص بالتاريخ
       setTimeout(function(){
         timeDatetxt = setInterval(function(){
           if(currentIndex < charArrDate.length){
@@ -426,7 +423,6 @@
           document.querySelectorAll(".heart").forEach((item)=>{ item.classList.add("animation"); });
         },3500);
 
-        // كتابة نص الرسالة حرفاً بحرف
         setTimeout(function(){
           intervalContent = setInterval(function(){
             if(currentIndexLetter < charArrDateLetter.length){
@@ -434,37 +430,31 @@
               currentIndexLetter++;
             } else {
               clearInterval(intervalContent);
-              // إظهار زر الترجمة فور انتهاء الكتابة التلقائية تماماً
               $('#btn__translate').fadeIn();
             }
           },50);
         },6000);
       });
 
-      // 🌐 آلية عمل زر الترجمة الذكي والمجاني بدون سيرفرات
       let originalText = datatxtletter;
       let translatedText = ""; 
       let isTranslated = false;
 
       $('#btn__translate').on('click', function() {
         if (isTranslated) {
-          // العودة للنص الأصلي المكتوب
           $('.text__letter p').text(originalText);
           isTranslated = false;
         } else {
           if (translatedText !== "") {
-            // إذا تمت ترجمتها مسبقاً، اعرض النص المخزن فوراً
             $('.text__letter p').text(translatedText);
             isTranslated = true;
           } else {
-            // تحديد مسار الترجمة تلقائياً (من ع/إ أو إ/ع)
             let isArabic = /[\u0600-\u06FF]/.test(originalText);
             let sourceLang = isArabic ? 'ar' : 'en';
             let targetLang = isArabic ? 'en' : 'ar';
             
             $('#btn__translate').html('<i class="fa-solid fa-spinner fa-spin"></i> جاري الترجمة...');
 
-            // استخدام الـ API السريع والمفتوح للترجمة الفورية
             let apiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang}&dt=t&q=${encodeURIComponent(originalText)}`;
             
             $.getJSON(apiUrl, function(data) {
