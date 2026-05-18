@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- 🌟 تم إضافة translate="no" هنا لمنع المتصفح من إجبار الصفحة على الترجمة التلقائية -->
+<!-- 🌟 تم إضافة translate="no" لمنع المتصفح من إجبار الصفحة على الترجمة التلقائية -->
 <html lang="en" translate="no">
 <head>
   <meta charset="UTF-8">
-  <meta name="google" content="notranslate"> <!-- 🌟 وسم إضافي مخصص لجوجل كروم لمنع الترجمة التلقائية -->
+  <meta name="google" content="notranslate"> <!-- 🌟 وسم مخصص لجوجل كروم لمنع الترجمة التلقائية للواجهة -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="title" content="Happy Birthday Website 2.0 | Customized">
   <title>Birthday Gift Animation</title>
@@ -201,7 +201,6 @@
 
     <div class="content">
       <div class="left">
-        <!-- 🌟 تم تجميد نصوص الهيدر عبر خاصية translate="no" لمنع المتصفح من تغييرها -->
         <div class="title" translate="no">
           <h1 class="happy">
             <span style="--t: 4s;">H</span>
@@ -255,7 +254,6 @@
           </div>
         </div>
 
-        <!-- 🌟 تم حماية النص الدائري الملتف أيضاً من الترجمة العشوائية للمتصفح -->
         <div class="cricle" translate="no">
           <div class="text__cricle">
             <span style="--i: 1;">h</span>
@@ -326,7 +324,8 @@
   </div>
 
   <script>
-    const defaultMsg = "You are a very special girl. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
+    // 🌟 تم تحديث الرسالة الافتراضية هنا لتصبح باللغة الإنجليزية التي طلبتها بدقة واحترافية
+    const defaultMsg = "Happy Birthday! May all your years be filled with joy and happiness, and may you achieve all your dreams. I pray your eyes see nothing but comfort and pure happiness. 💕";
     
     for(let d=1; d<=31; d++) { $('#select__day').append(`<option value="${d < 10 ? '0'+d : d}">${d < 10 ? '0'+d : d}</option>`); }
     for(let y=new Date().getFullYear(); y>=1950; y--) { $('#select__year').append(`<option value="${y}">${y}</option>`); }
