@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
-  <meta name="github" content="https://github.com/Aoudumber-Bade">
+  <meta name="title" content="Happy Birthday Website 2.0 | Customized">
   <title>Birthday Gift Animation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-  <!-- ❤️ Floating Heart Cursor Script (restored and working) -->
+  <!-- ❤️ Floating Heart Cursor Script -->
   <script type="text/javascript">
   var colours = ['#ff3366', '#ff6699', '#ff33cc', '#ff99cc', '#ff66b2', '#ff0066']; 
   var minisize = 16; 
@@ -143,12 +142,59 @@
 </head>
 
 <body>
-  <!-- 👇 Your entire original content (untouched) -->
-  <!-- START -->
-  <div id="wrapper">
+
+  <!-- 🛠️ واجهة التحكم والمنشئ (تظهر فقط إذا كان الرابط فارغاً) -->
+  <div id="setup__container">
+    <div class="setup__box">
+      <h2><i class="fa-solid fa-wand-magic-sparkles"></i> صانع هدايا أعياد الميلاد</h2>
+      <p class="subtitle">اختر البيانات لإنشاء رابط مخصص وإرساله لمن تحب</p>
+      
+      <div class="input__group">
+        <label>اختر تاريخ الميلاد:</label>
+        <div class="date__selectors">
+          <select id="select__day"></select>
+          <select id="select__month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+          <select id="select__year"></select>
+        </div>
+      </div>
+
+      <div class="input__group">
+        <label>رسالة المعايدة:</label>
+        <textarea id="custom__msg" placeholder="اكتب رسالتك الخاصة هنا للطرف الآخر..."></textarea>
+        <button id="btn__default--msg" type="button"><i class="fa-solid fa-quote-left"></i> استخدام الرسالة الافتراضية</button>
+      </div>
+
+      <button id="btn__generate">إنشاء رابط الهدية المخصص <i class="fa-solid fa-link"></i></button>
+
+      <div id="result__link--box" style="display: none;">
+        <p>تم إنشاء الرابط بنجاح! انسخه الآن وأرسله:</p>
+        <div class="copy__input--wrapper">
+          <input type="text" id="generated__url" readonly>
+          <button id="btn__copy">نسخ <i class="fa-regular fa-copy"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 🎁 واجهة عرض الهدية (تختفي في البداية وتعمل بالرابط الذكي) -->
+  <div id="wrapper" style="display: none;">
     <div class="flag__birthday">
-      <img src="./images/1.png" alt="" width="350" class="flag__left">
-      <img src="./images/1.png" alt="" width="350" class="flag__right">
+      <img src="1.png" alt="" width="350" class="flag__left">
+      <img src="1.png" alt="" width="350" class="flag__right">
     </div>
 
     <div class="content">
@@ -172,7 +218,7 @@
             <span style="--t: 6.4s;">y</span>
           </h1>
           <div class="hat">
-            <img src="./images/hat.png" alt="" width="130">
+            <img src="hat.png" alt="">
           </div>
         </div>
 
@@ -191,7 +237,7 @@
       <div class="right">
         <div class="box__account">
           <div class="image">
-            <img src="./images/img.png" alt="">
+            <img src="img.png" alt="">
           </div>
           <div class="name">
             <i class="fa-solid fa-heart"></i>
@@ -199,10 +245,10 @@
             <i class="fa-solid fa-heart"></i>
           </div>
           <div class="balloon_one">
-            <img width="100px" src="./images/balloon1.png" alt="">
+            <img width="100px" src="balloon1.png" alt="">
           </div>
           <div class="balloon_two">
-            <img width="100px" src="./images/balloon2.png" alt="">
+            <img width="100px" src="balloon2.png" alt="">
           </div>
         </div>
 
@@ -236,20 +282,20 @@
     <div class="decorate_star star5" style="--t: 15.8s;"></div>
 
     <div class="decorate_flower--one" style="--t: 15s;">
-      <img width="20" src="./images/decorate_flower.png" alt="">
+      <img width="20" src="decorate_flower.png" alt="">
     </div>
     <div class="decorate_flower--two" style="--t: 15.3s;">
-      <img width="20" src="./images/decorate_flower.png" alt="">
+      <img width="20" src="decorate_flower.png" alt="">
     </div>
     <div class="decorate_flower--three" style="--t: 15.6s;">
-      <img width="20" src="./images/decorate_flower.png" alt="">
+      <img width="20" src="decorate_flower.png" alt="">
     </div>
 
     <div class="decorate_bottom">
-      <img src="./images/decorate.png" alt="" width="100">
+      <img src="decorate.png" alt="" width="100">
     </div>
     <div class="smiley__icon">
-      <img src="./images/smiley_icon.png" alt="" width="100">
+      <img src="smiley_icon.png" alt="" width="100">
     </div>
 
     <!-- Letter Box -->
@@ -260,10 +306,10 @@
           <div class="content__letter">
             <div class="left">
               <img id="heart__letter" src="https://media0.giphy.com/media/c76IJLufpNwSULPk77/giphy.gif" alt="">
-              <img class="heart heart_1" style="--t: 0.2s" width="20" src="./images/heart.png" alt="">
-              <img class="heart heart_2" style="--t: 0.4s" width="20" src="./images/heart.png" alt="">
-              <img class="heart heart_3" style="--t: 0.6s" width="20" src="./images/heart.png" alt="">
-              <img class="heart heart_4" style="--t: 0.8s" width="20" src="./images/heart.png" alt="">
+              <img class="heart heart_1" style="--t: 0.2s" width="20" src="heart.png" alt="">
+              <img class="heart heart_2" style="--t: 0.4s" width="20" src="heart.png" alt="">
+              <img class="heart heart_3" style="--t: 0.6s" width="20" src="heart.png" alt="">
+              <img class="heart heart_4" style="--t: 0.8s" width="20" src="heart.png" alt="">
             </div>
             <div class="right">
               <div class="love__img">
@@ -272,7 +318,7 @@
               <div class="text__letter">
                 <p></p>
               </div>
-              <img id="mewmew" width="80" src="./images/mewmew.gif" alt="">
+              <img id="mewmew" width="80" src="mewmew.gif" alt="">
             </div>
           </div>
         </div>
@@ -283,93 +329,169 @@
     </div>
   </div>
 
-
-  <!-- Original script unchanged -->
   <script>
-    let datetxt = "06 March 1998";
-    let datatxtletter = "You are a very special girl. Today, I wish you all the best, lots of health, and lots of joy.  I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
-    let titleLetter = "To you";
-    let charArrDate = datetxt.split('');
-    let charArrDateLetter = datatxtletter.split('');
-    let charArrTitle = titleLetter.split('');
-    let currentIndex = 0;
-    let currentIndexLetter = 0;
-    let currentIndexTitle = 0;
-    let date__of__birth = document.querySelector(".date__of__birth span");
-    let text__letter = document.querySelector(".text__letter p");
+    // الرسالة الافتراضية الأصلية بالكود
+    const defaultMsg = "You are a very special girl. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
+    
+    // توليد خيارات الأيام والسنوات داخل القوائم تلقائياً
+    for(let d=1; d<=31; d++) {
+      $('#select__day').append(`<option value="${d < 10 ? '0'+d : d}">${d < 10 ? '0'+d : d}</option>`);
+    }
+    for(let y=new Date().getFullYear(); y>=1950; y--) {
+      $('#select__year').append(`<option value="${y}">${y}</option>`);
+    }
 
-    setTimeout(function(){
-      timeDatetxt = setInterval(function(){
-        if(currentIndex < charArrDate.length){
-          date__of__birth.textContent += charArrDate[currentIndex];
-          currentIndex++;
-        } else {
-          let i = document.createElement("i");
-          i.className = "fa-solid fa-star";
-          document.querySelector(".date__of__birth").prepend(i);
-          document.querySelector(".date__of__birth").appendChild(i.cloneNode(true));
-          clearInterval(timeDatetxt);
-        }
-      },100)
-    },12000);
+    // زر إدراج الرسالة الافتراضية
+    $('#btn__default--msg').on('click', function() {
+      $('#custom__msg').val(defaultMsg);
+    });
 
-    var intervalContent;
-    var intervalTitle;
-    $("#btn__letter").on("click", function(){
-      $(".box__letter").slideDown();
+    // دالة لتشفير النصوص العربية بشكل صحيح لتعمل في الروابط بدون مشاكل
+    function utf8_to_b64(str) {
+      return window.btoa(unescape(encodeURIComponent(str)));
+    }
+    function b64_to_utf8(str) {
+      return decodeURIComponent(escape(window.atob(str)));
+    }
+
+    // زر توليد الرابط المخصص
+    $('#btn__generate').on('click', function() {
+      let day = $('#select__day').val();
+      let month = $('#select__month').val();
+      let year = $('#select__year').val();
+      let msg = $('#custom__msg').val().trim();
+      
+      if(!msg) msg = defaultMsg; // إذا لم يكتب، خذ الافتراضية
+
+      let finalDate = `${day} ${month} ${year}`;
+      let encodedMsg = utf8_to_b64(msg);
+
+      // دمج المعاملات بالرابط الأساسي
+      let currentUrl = window.location.href.split('?')[0];
+      let generatedUrl = `${currentUrl}?date=${encodeURIComponent(finalDate)}&msg=${encodedMsg}`;
+
+      $('#generated__url').val(generatedUrl);
+      $('#result__link--box').slideDown();
+    });
+
+    // زر نسخ الرابط
+    $('#btn__copy').on('click', function() {
+      let copyText = document.getElementById("generated__url");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(copyText.value);
+      alert("تم نسخ الرابط بنجاح! أرسله لمن تحب الآن 🎁");
+    });
+
+
+    // ===========================================
+    // 🔍 فحص الرابط البرمجي (الرابط الذكي عند الفتح)
+    // ===========================================
+    const urlParams = new URLSearchParams(window.location.search);
+    let datetxt = urlParams.get('date');
+    let datatxtletter = urlParams.get('msg');
+
+    if (datetxt && datatxtletter) {
+      // إذا كان الرابط يحتوي على البيانات: اخفِ لوحة التحكم واعرض الهدية مباشرة
+      $('#setup__container').remove();
+      $('#wrapper').show();
+
+      // فك تشفير الرسالة المخصصة
+      try {
+        datatxtletter = b64_to_utf8(datatxtletter);
+      } catch(e) {
+        datatxtletter = defaultMsg;
+      }
+
+      // تشغيل سكربت التهنئة والأنميشن الأصلي بناءً على البيانات المستخرجة
+      let titleLetter = "To you";
+      let charArrDate = datetxt.split('');
+      let charArrDateLetter = datatxtletter.split('');
+      let charArrTitle = titleLetter.split('');
+      let currentIndex = 0;
+      let currentIndexLetter = 0;
+      let currentIndexTitle = 0;
+      let date__of__birth = document.querySelector(".date__of__birth span");
+      let text__letter = document.querySelector(".text__letter p");
+
       setTimeout(function(){
-        $(".letter__border").slideDown();
-      },1000);
-      setTimeout(function(){
-        intervalTitle = setInterval(function(){
-          if(currentIndexTitle < charArrTitle.length){
-            document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
+        timeDatetxt = setInterval(function(){
+          if(currentIndex < charArrDate.length){
+            date__of__birth.textContent += charArrDate[currentIndex];
+            currentIndex++;
+          } else {
             let i = document.createElement("i");
-            i.className = "fa-solid fa-heart";
-            document.querySelector(".title__letter").appendChild(i);
-            currentIndexTitle++;
-          } else {
-            clearInterval(intervalTitle);
+            i.className = "fa-solid fa-star";
+            document.querySelector(".date__of__birth").prepend(i);
+            document.querySelector(".date__of__birth").appendChild(i.cloneNode(true));
+            clearInterval(timeDatetxt);
           }
-        },100);
-      },2000);
-      setTimeout(function(){
-        document.querySelector("#heart__letter").classList.add("animationOp");
-        document.querySelector(".love__img").classList.add("animationOp");
-        document.querySelector("#mewmew").classList.add("animationOp");
-      },2800);
-      setTimeout(function(){
-        document.querySelectorAll(".heart").forEach((item)=>{
-          item.classList.add("animation");
-        })
-      },3500);
-      setTimeout(function(){
-        intervalContent = setInterval(function(){
-          if(currentIndexLetter < charArrDateLetter.length){
-            text__letter.textContent += charArrDateLetter[currentIndexLetter];
-            currentIndexLetter++;
-          } else {
-            clearInterval(intervalContent);
-          }
-        },50);
-      },6000);
-    });
+        },100)
+      },12000);
 
-    $(".close").on("click", function(){
-      clearInterval(intervalContent);
-      document.querySelector(".title__letter").textContent = "";
-      text__letter.textContent = "";
-      currentIndexLetter = 0;
-      currentIndexTitle = 0;
-      document.querySelector("#heart__letter").classList.remove("animationOp");
-      document.querySelector(".love__img").classList.remove("animationOp");
-      document.querySelector("#mewmew").classList.remove("animationOp");
-      document.querySelectorAll(".heart").forEach((item)=>{
-        item.classList.remove("animation");
+      var intervalContent;
+      var intervalTitle;
+      $("#btn__letter").on("click", function(){
+        $(".box__letter").slideDown();
+        setTimeout(function(){
+          $(".letter__border").slideDown();
+        },1000);
+        setTimeout(function(){
+          intervalTitle = setInterval(function(){
+            if(currentIndexTitle < charArrTitle.length){
+              document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
+              let i = document.createElement("i");
+              i.className = "fa-solid fa-heart";
+              document.querySelector(".title__letter").appendChild(i);
+              currentIndexTitle++;
+            } else {
+              clearInterval(intervalTitle);
+            }
+          },100);
+        },2000);
+        setTimeout(function(){
+          document.querySelector("#heart__letter").classList.add("animationOp");
+          document.querySelector(".love__img").classList.add("animationOp");
+          document.querySelector("#mewmew").classList.add("animationOp");
+        },2800);
+        setTimeout(function(){
+          document.querySelectorAll(".heart").forEach((item)=>{
+            item.classList.add("animation");
+          })
+        },3500);
+        setTimeout(function(){
+          intervalContent = setInterval(function(){
+            if(currentIndexLetter < charArrDateLetter.length){
+              text__letter.textContent += charArrDateLetter[currentIndexLetter];
+              currentIndexLetter++;
+            } else {
+              clearInterval(intervalContent);
+            }
+          },50);
+        },6000);
       });
-      $(".box__letter").slideUp();
-      $(".letter__border").slideUp();
-    });
+
+      $(".close").on("click", function(){
+        clearInterval(intervalContent);
+        document.querySelector(".title__letter").textContent = "";
+        text__letter.textContent = "";
+        currentIndexLetter = 0;
+        currentIndexTitle = 0;
+        document.querySelector("#heart__letter").classList.remove("animationOp");
+        document.querySelector(".love__img").classList.remove("animationOp");
+        document.querySelector("#mewmew").classList.remove("animationOp");
+        document.querySelectorAll(".heart").forEach((item)=>{
+          item.classList.remove("animation");
+        });
+        $(".box__letter").slideUp();
+        $(".letter__border").slideUp();
+      });
+
+    } else {
+      // إذا كان الرابط فارغاً: اعرض لوحة تحكم التخصيص والمنشئ
+      $('#setup__container').show();
+      $('#wrapper').remove();
+    }
   </script>
 </body>
 </html>
