@@ -25,154 +25,31 @@ html, body {
     background-color: var(--color-pink);
 }
 
-/* ✨ تنسيق لوحة التحكم والمنشئ (Setup Generator CSS) */
-#setup__container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: var(--color-pink);
-    font-family: 'Cairo', sans-serif;
-    direction: rtl;
-}
-.setup__box {
-    background-color: var(--color-white);
-    width: 100%;
-    max-width: 500px;
-    border: 3px solid var(--color-black);
-    border-radius: 20px;
-    padding: 30px 25px;
-    box-shadow: 6px 6px 0px var(--color-black);
-    text-align: right;
-}
-.setup__box h2 {
-    color: var(--color-text-pink);
-    font-size: 1.6rem;
-    margin-bottom: 5px;
-    font-weight: 700;
-}
-.setup__box .subtitle {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 25px;
-}
-.input__group {
-    margin-bottom: 20px;
-}
-.input__group label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--color-black);
-}
-.date__selectors {
-    display: flex;
-    gap: 10px;
-}
-.date__selectors select, .input__group textarea, .copy__input--wrapper input {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid var(--color-black);
-    border-radius: 10px;
-    font-family: 'Cairo', sans-serif;
-    font-size: 0.95rem;
-    outline: none;
-    background-color: #fafafa;
-}
-.date__selectors select:focus, .input__group textarea:focus {
-    border-color: var(--color-text-pink);
-}
-.input__group textarea {
-    height: 110px;
-    resize: none;
-}
-#btn__default--msg {
-    background: none;
-    border: none;
-    color: var(--color-text-pink);
-    font-weight: 700;
-    cursor: pointer;
-    font-size: 0.85rem;
-    margin-top: 5px;
-    font-family: 'Cairo', sans-serif;
-    display: inline-block;
-    transition: color 0.2s;
-}
-#btn__default--msg:hover {
-    color: var(--color-heart);
-}
-#btn__generate {
-    width: 100%;
-    background-color: var(--color-text-pink);
-    color: var(--color-white);
-    border: 2px solid var(--color-black);
-    padding: 12px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 12px;
-    cursor: pointer;
-    font-family: 'Cairo', sans-serif;
-    box-shadow: 3px 3px 0px var(--color-black);
-    transition: all 0.2s;
-}
-#btn__generate:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px var(--color-black);
-}
-#result__link--box {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 2px dashed #ccc;
-}
-#result__link--box p {
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-    color: #2e7d32;
-}
-.copy__input--wrapper {
-    display: flex;
-    gap: 5px;
-}
-.copy__input--wrapper input {
-    direction: ltr;
-    background-color: #eee;
-    color: #444;
-}
-#btn__copy {
-    background-color: var(--color-black);
-    color: white;
-    border: none;
-    padding: 0 20px;
-    border-radius: 10px;
-    font-family: 'Cairo', sans-serif;
-    font-weight: 700;
-    cursor: pointer;
-}
-#btn__copy:hover {
-    background-color: #444;
-}
+/* ✨ ستايل لوحة التحكم والمنشئ */
+#setup__container { width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; background-color: var(--color-pink); font-family: 'Cairo', sans-serif; direction: rtl; }
+.setup__box { background-color: var(--color-white); width: 100%; max-width: 500px; border: 3px solid var(--color-black); border-radius: 20px; padding: 30px 25px; box-shadow: 6px 6px 0px var(--color-black); text-align: right; }
+.setup__box h2 { color: var(--color-text-pink); font-size: 1.6rem; margin-bottom: 5px; font-weight: 700; }
+.setup__box .subtitle { color: #666; font-size: 0.9rem; margin-bottom: 25px; }
+.input__group { margin-bottom: 20px; }
+.input__group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--color-black); }
+.date__selectors { display: flex; gap: 10px; }
+.date__selectors select, .input__group textarea, .copy__input--wrapper input { width: 100%; padding: 10px; border: 2px solid var(--color-black); border-radius: 10px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; outline: none; background-color: #fafafa; }
+.date__selectors select:focus, .input__group textarea:focus { border-color: var(--color-text-pink); }
+.input__group textarea { height: 110px; resize: none; }
+#btn__default--msg { background: none; border: none; color: var(--color-text-pink); font-weight: 700; cursor: pointer; font-size: 0.85rem; margin-top: 5px; font-family: 'Cairo', sans-serif; display: inline-block; transition: color 0.2s; }
+#btn__default--msg:hover { color: var(--color-heart); }
+#btn__generate { width: 100%; background-color: var(--color-text-pink); color: var(--color-white); border: 2px solid var(--color-black); padding: 12px; font-size: 1.1rem; font-weight: 700; border-radius: 12px; cursor: pointer; font-family: 'Cairo', sans-serif; box-shadow: 3px 3px 0px var(--color-black); transition: all 0.2s; }
+#btn__generate:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0px var(--color-black); }
+#result__link--box { margin-top: 25px; padding-top: 20px; border-top: 2px dashed #ccc; }
+#result__link--box p { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; color: #2e7d32; }
+.copy__input--wrapper { display: flex; gap: 5px; }
+.copy__input--wrapper input { direction: ltr; background-color: #eee; color: #444; }
+#btn__copy { background-color: var(--color-black); color: white; border: none; padding: 0 20px; border-radius: 10px; font-family: 'Cairo', sans-serif; font-weight: 700; cursor: pointer; }
+#btn__copy:hover { background-color: #444; }
 
-/* =========================================== */
-/* 🎁 كود الستايل الأصلي والأنميشن للموقع */
-/* =========================================== */
-#wrapper{
-    position: relative;
-    background-color: transparent;
-    background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent);
-    height:100%;
-    background-size:80px 80px;
-    overflow: hidden;
-    z-index: 1;
-}
-.flag__birthday{
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-200px);
-    animation: translateYFlag 1.5s 2s forwards;
-}
+/* 🎁 كود الستايل الأصلي والأنميشن */
+#wrapper{ position: relative; background-color: transparent; background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent); height:100%; background-size:80px 80px; overflow: hidden; z-index: 1; }
+.flag__birthday{ display: flex; justify-content: space-between; transform: translateY(-200px); animation: translateYFlag 1.5s 2s forwards; }
 @keyframes translateYFlag{ to{ transform: translateY(-10px); } }
 .flag__birthday .flag__left{ transform: rotate(-10deg) translate(-20px,30px); }
 .flag__birthday .flag__right{ transform: rotate(10deg) translate(20px,30px) scaleX(-1); }
@@ -181,81 +58,27 @@ html, body {
 .content .left{ width: 40%; padding-left: 100px; }
 .content .right{ width: 60%; }
 .left .btn{ transform: scale(0); animation: scaleCricle 2s 16s forwards ease-in-out; }
-#btn__letter{
-    position: relative;
-    margin-top: 30px;
-    background-color: var(--color-text-pink);
-    outline: none;
-    padding: 5px 15px;
-    font-size: 1rem;
-    border-radius: 50px;
-    border: 3px solid var(--color-black);
-    font-family: "Sriracha", cursive;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 2;
-    transform: scale(1);
-    transition: all .5s ease-in-out;
-}
+#btn__letter{ position: relative; margin-top: 30px; background-color: var(--color-text-pink); outline: none; padding: 5px 15px; font-size: 1rem; border-radius: 50px; border: 3px solid var(--color-black); font-family: "Sriracha", cursive; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; transform: scale(1); transition: all .5s ease-in-out; }
 #btn__letter:active{ transform: scale(0.7); }
 #btn__letter i{ margin-left: 5px; }
 #btn__letter:hover { border-color: var(--color-heart); background-color: var(--color-heart); color: #fff; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; }
 #btn__letter:hover i{ animation: rotateHeart 1s infinite linear; }
 @keyframes rotateHeart{ 0%,50%, 100%{ transform: rotate(0deg); } 25%{ transform: rotate(12deg); } 75%{ transform: rotate(-12deg); } }
 
-.title{
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    justify-content: center;
-    font-family: "Titan One", sans-serif;
-    font-size: 3rem;
-    flex-direction: column;
-    perspective: 1000px;
-}
-.title .happy, .title .birthday{
-    position: relative;
-    text-shadow: 4px 4px var(--color-black), -4px 4px var(--color-black), 4px -4px var(--color-black), -4px -4px var(--color-black), 4px 8px 0 var(--color-black);
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-}
+.title{ position: relative; width: 100%; max-width: 400px; display: flex; justify-content: center; font-family: "Titan One", sans-serif; font-size: 3rem; flex-direction: column; perspective: 1000px; }
+.title .happy, .title .birthday{ position: relative; text-shadow: 4px 4px var(--color-black), -4px 4px var(--color-black), 4px -4px var(--color-black), -4px -4px var(--color-black), 4px 8px 0 var(--color-black); font-weight: bold; display: flex; justify-content: center; }
 .title .happy{ color: var(--color-white); }
 .title .happy span, .title .birthday span{ transform: translateY(50px); opacity: 0; visibility: hidden; animation: txtTranslateY .5s var(--t) forwards; }
 @keyframes txtTranslateY{ 100%{ transform: translateY(0); opacity: 1; visibility: visible; } }
 .title .birthday{ color: var(--color-text-pink); }
 
-.title .hat{
-    position: absolute;
-    left: 15%;
-    top: -200px;
-    transform: rotate(-25deg);
-    z-index: 99;
-    opacity: 0;
-    animation: topHat 3s 7s forwards ease-out;
-}
+.title .hat{ position: absolute; left: 15%; top: -200px; transform: rotate(-25deg); z-index: 99; opacity: 0; animation: topHat 3s 7s forwards ease-out; }
 .title .hat img { width: 110px; height: auto; }
 @keyframes topHat{ to { top: -65px; opacity: 1; transform: rotate(-15deg); } }
 
 .date__of__birth, .name{ display: flex; justify-content:space-around; align-items: center; background-color: var(--color-text-pink); border-radius: 50px; margin-top: 20px; font-family: "Sriracha", cursive; }
-.date__of__birth{
-    border: 3px solid var(--color-black);
-    position: relative;
-    transform: translateY(-100px);
-    z-index: -1;
-    opacity: 0;
-    visibility: hidden;
-    width: 0px;
-    animation: dateOfBirth 5s 9s forwards;
-}
-@keyframes dateOfBirth{
-    20%,40%{ width: 0px; height: 0; transform: translateY(0px); opacity: 1; visibility: visible; }
-    45%{ transform: translateY(0px); opacity: 1; visibility: visible; width: 300px; height: 0px; }
-    50%,100%{ transform: translateY(0px); opacity: 1; visibility: visible; width: 300px; height: 50px; }
-}
+.date__of__birth{ border: 3px solid var(--color-black); position: relative; transform: translateY(-100px); z-index: -1; opacity: 0; visibility: hidden; width: 0px; animation: dateOfBirth 5s 9s forwards; }
+@keyframes dateOfBirth{ 20%,40%{ width: 0px; height: 0; transform: translateY(0px); opacity: 1; visibility: visible; } 45%{ transform: translateY(0px); opacity: 1; visibility: visible; width: 300px; height: 0px; } 50%,100%{ transform: translateY(0px); opacity: 1; visibility: visible; width: 300px; height: 50px; } }
 .name{ position: absolute; padding: 0px 40px; bottom: -20px; border: 3px solid var(--color-black); }
 .date__of__birth span, .name span{ font-weight: bold; margin: 0px 40px; }
 .date__of__birth span{ font-size: 1.2rem; }
@@ -312,10 +135,34 @@ html, body {
 .content__letter .left .heart_2{ top: 20px; right: 70px; }
 .content__letter .left .heart_3{ bottom: 50px; left: 145px; }
 .content__letter .left .heart_4{ top: 140px; right: 35px; }
-.content__letter .right{ position: relative; width: 50%; }
+.content__letter .right { position: relative; width: 50%; display: flex; flex-direction: column; }
 .content__letter .right .love__img{ opacity: 0; position: absolute; right: 20px; top: -100px; }
 .love__img.animationOp{ animation: opacityHeart 1s 1s forwards; }
-.content__letter .right .text__letter{ margin-top: 60px; padding: 20px 15px 10px 15px; font-family: 'Dancing Script', cursive; font-size: 1.3rem; }
+
+/* ✍️ ستايل نص الرسالة وضبط ارتفاعها لمنع حدوث تداخل مع الزر */
+.content__letter .right .text__letter{ margin-top: 50px; padding: 15px; font-family: 'Dancing Script', cursive; font-size: 1.2rem; max-height: 220px; overflow-y: auto; line-height: 1.5; }
+
+/* 🌐 ستايل زر الترجمة الفاخر داخل الرسالة */
+#btn__translate {
+    position: absolute;
+    bottom: 45px;
+    left: 15px;
+    background-color: var(--color-text-pink);
+    color: var(--color-white);
+    border: 2px solid var(--color-black);
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 99;
+    box-shadow: 2px 2px 0px var(--color-black);
+    transition: all 0.2s ease;
+}
+#btn__translate:active { transform: translate(1px, 1px); box-shadow: 0px 0px 0px var(--color-black); }
+#btn__translate:hover { background-color: var(--color-heart); }
+
 .content__letter .right #mewmew{ position: absolute; bottom: 0; right: 0; opacity: 0; }
 #mewmew.animationOp{ animation: opacityHeart 1s 1s forwards; }
 
@@ -325,20 +172,22 @@ html, body {
     .flag__birthday .flag__right { transform: rotate(10deg) translate(-106px,39px) scaleX(-1); }
     .content { width: 100%; position: relative; display: flex; flex-direction: column; justify-content: center; gap: 25px; align-items: center; padding-top: 2rem; }
     .content .left, .content .right { width: 100%; padding-left: 0; }
-    
     .title { position: relative; width: 100%; display: flex; justify-content: center; font-family: "Titan One", sans-serif; font-size: 1.5rem; letter-spacing: 8px; flex-direction: column; perspective: 1000px; align-items: center; }
-    
     .title .hat { position: absolute; left: 20% !important; top: -150px !important; z-index: 99 !important; opacity: 0; animation: topHatMobile 3s 7s forwards ease-out !important; }
     .title .hat img { width: 65px !important; }
     @keyframes topHatMobile { to { top: -35px !important; opacity: 1 !important; transform: rotate(-15deg) !important; } }
 
     #btn__letter { position: relative; margin-top: 17px; width: 209px; background-color: var(--color-text-pink); outline: none; padding: 6px 4px; font-size: 1rem; border-radius: 50px; border: 3px solid var(--color-black); font-family: "Sriracha", cursive; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; transition: all .5s ease-in-out; }
     .cricle { position: absolute; top: 10px; right: -54px; display: flex; justify-content: center; align-items: center; transform: scale(0); animation: scaleCricle 3s 15s forwards ease-in-out; }
-    .box__letter .letter__border { position: absolute; width: 90vw; height: 315px; background-color: var(--color-white); border-radius: 27px; padding: 17px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; top: 50%; left: 50%; transform: translate(-50%,-50%); display: none; }
+    
+    .box__letter .letter__border { position: absolute; width: 92vw; height: 350px; background-color: var(--color-white); border-radius: 27px; padding: 12px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; top: 50%; left: 50%; transform: translate(-50%,-50%); display: none; }
     .letter__border .letter { width: 100%; height: 100%; background-color: var(--color-bg-letter); border-radius: 10px; padding-top: 15px; }
     .letter__border .letter .title__letter { text-align: center; font-family: 'Dancing Script', cursive; font-weight: bold; font-size: 1.4rem; }
     .letter__border .letter .content__letter { position: relative; width: 100%; height: 100%; display: flex; padding-top: .7rem; padding-bottom: 70px; }
-    .content__letter .right .text__letter { margin-top: -14px; padding: 20px 15px 10px 15px; font-family: 'Dancing Script', cursive; font-size: .8rem; }
+    
+    .content__letter .right .text__letter { margin-top: -10px; padding: 10px; font-family: 'Dancing Script', cursive; font-size: .75rem; max-height: 170px; overflow-y: auto; }
+    #btn__translate { bottom: 42px; left: 8px; padding: 3px 8px; font-size: 0.7rem; }
+    
     .content__letter .right .love__img { opacity: 0; position: absolute; right: 126px; top: 167px; }
     .love__img img { width: 84px; }
     .content .right .image { position: relative; width: 200px; height: 200px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; border: 6px solid var(--color-black); }
